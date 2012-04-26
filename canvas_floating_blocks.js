@@ -28,6 +28,7 @@ var Box = function(options) {
 
   this.krect.on('mouseover', function() {
     this.box.stopped = true;
+    this.moveToTop();
   });
 
   this.krect.on('mouseout', function() {
