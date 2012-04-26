@@ -6,6 +6,14 @@ data = [
   {width: 200, height: 50, amplitude: {x: 600, y: 400}, period: 1400, fill: '#777'}
 ];
 
+function writeMessage(messageLayer, message) {
+  var context = messageLayer.getContext();
+  messageLayer.clear();
+  context.font = "18pt Calibri";
+  context.fillStyle = "white";
+  context.fillText(message, 10, 25);
+}
+
 var Box = function(options) {
   this.width = options.width;
   this.height = options.height;
@@ -14,13 +22,29 @@ var Box = function(options) {
   window.layer.add(this.krect);
   this.amplitude = options.amplitude;
   this.period = options.period;
+  this.stopped = false;
+  this.timeLag = 0;
+  this.krect.box = this;
 
-  this.move = function(time) {
-    this.x = this.amplitude.x * Math.sin(time / this.period) + (window.stage.getWidth() / 2) - (this.width / 2);
-    this.y = this.amplitude.y * Math.cos(time / this.period) + (window.stage.getHeight() / 2) - (this.height / 2);
-    this.krect.setX(this.x);
-    this.krect.setY(this.y);
-    window.layer.draw();
+  this.krect.on('mouseover', function() {
+    this.box.stopped = true;
+  });
+
+  this.krect.on('mouseout', function() {
+    this.box.stopped = false;
+  });
+
+  this.move = function(time, timeDiff) {
+    if(!this.stopped) {
+      this.x = this.amplitude.x * Math.sin((time - this.timeLag) / this.period) + (window.stage.getWidth() / 2) - (this.width / 2);
+      this.y = this.amplitude.y * Math.cos((time - this.timeLag) / this.period) + (window.stage.getHeight() / 2) - (this.height / 2);
+      this.krect.setX(this.x);
+      this.krect.setY(this.y);
+      window.layer.draw();
+    } else {
+      this.timeLag += timeDiff;
+      writeMessage(messageLayer, this.timeLag);
+    }
   }
 };
 
@@ -29,19 +53,22 @@ window.onload = function() {
   stage_options = {container: 'canvas', width: $(document).width(), height: $(document).height()};
 
   var stage = new K.Stage(stage_options);
-  window.stage = stage;
   var layer = new K.Layer();
-  window.layer = layer;
+  var messageLayer = new K.Layer();
   stage.add(layer);
+  stage.add(messageLayer);
+
+  window.stage = stage;
+  window.layer = layer;
+  window.messageLayer = messageLayer;
 
   boxes = [];
   $.each(data, function(i) {
     boxes.push(new Box(data[i]));
   });
 
-
   stage.onFrame(function(frame) {
-    $.each(boxes, function(i, box) {box.move(frame.time)});
+    $.each(boxes, function(i, box) {box.move(frame.time, frame.timeDiff)});
   });
 
   stage.start();
