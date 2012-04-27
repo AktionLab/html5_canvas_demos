@@ -1,9 +1,35 @@
 data = [
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 3000, fill: '#fff'},
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2200, fill: '#ddd'},
-  {width: 200, height: 50, amplitude: {x: 700, y: 300}, period: 2800, fill: '#bbb'},
-  {width: 200, height: 50, amplitude: {x: 500, y: 350}, period: 1700, fill: '#999'},
-  {width: 200, height: 50, amplitude: {x: 600, y: 400}, period: 1400, fill: '#777'}
+  // 16 in outer ring
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2900, fill: '#fff'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2800, fill: '#eee'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2700, fill: '#ddd'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2600, fill: '#ccc'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2500, fill: '#bbb'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2400, fill: '#aaa'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2300, fill: '#999'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2200, fill: '#888'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2100, fill: '#777'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2000, fill: '#666'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1900, fill: '#555'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1800, fill: '#444'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1700, fill: '#333'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1600, fill: '#222'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1500, fill: '#111'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1400, fill: '#000'},
+  // 8 in middle ring
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2850, fill: '#fff'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2650, fill: '#ddd'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2450, fill: '#bbb'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2250, fill: '#999'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2050, fill: '#777'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1850, fill: '#555'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1650, fill: '#333'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1450, fill: '#111'},
+  // 4 in inner ring
+  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 2700, fill: '#ccc'},
+  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 2300, fill: '#888'},
+  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 1900, fill: '#444'},
+  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 1500, fill: '#000'},
 ];
 
 function writeMessage(messageLayer, message) {
@@ -15,15 +41,22 @@ function writeMessage(messageLayer, message) {
 }
 
 var Box = function(options) {
+  var randomFactor = (Math.random() - 0.5);
+
   this.width = options.width;
   this.height = options.height;
   this.fill = options.fill;
   this.krect = new Kinetic.Rect(this);
   window.layer.add(this.krect);
-  this.amplitude = options.amplitude;
-  this.period = options.period;
+  //this.amplitude = options.amplitude;
+  this.amplitude = {
+    x: 600 + (randomFactor * 400),
+    y: 300 + (randomFactor * 200)
+  };
+  //this.period = options.period;
+  this.period = 8000 + (randomFactor * 500);
   this.stopped = false;
-  this.timeLag = 0;
+  this.timeLag = Math.floor((Math.random() - 0.5) * this.period * 8);
   this.krect.box = this;
 
   this.krect.on('mouseover', function() {
@@ -37,8 +70,13 @@ var Box = function(options) {
 
   this.move = function(time, timeDiff) {
     if(!this.stopped) {
-      this.x = this.amplitude.x * Math.sin((time - this.timeLag) / this.period) + (window.stage.getWidth() / 2) - (this.width / 2);
-      this.y = this.amplitude.y * Math.cos((time - this.timeLag) / this.period) + (window.stage.getHeight() / 2) - (this.height / 2);
+      timeFactor = (time - this.timeLag) / this.period;
+      offset = {
+        x: (window.stage.getWidth() - this.width) / 2,
+        y: (window.stage.getHeight() - this.height) / 2
+      };
+      this.x = this.amplitude.x * Math.sin(timeFactor) + offset.x;
+      this.y = this.amplitude.y * Math.cos(timeFactor) + offset.y;
       this.krect.setX(this.x);
       this.krect.setY(this.y);
       window.layer.draw();
