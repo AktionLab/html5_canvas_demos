@@ -91,6 +91,9 @@ var Box = function(options) {
   }
 };
 
+var rateLimitDiff = 0;
+var lastFrameTime = 0;
+
 window.onload = function() {
   var K = Kinetic;
   stage_options = {container: 'canvas', width: $(document).width(), height: $(document).height()};
@@ -111,11 +114,16 @@ window.onload = function() {
   });
 
   stage.onFrame(function(frame) {
-    writeMessage(messageLayer, 1000 / frame.timeDiff);
-    for(var i = 0; i < boxes.length; i++) {
-      boxes[i].move(frame.time, frame.timeDiff);
+    rateLimitDiff += frame.timeDiff;
+    if(rateLimitDiff > 35) {
+      rateLimitDiff = 0;
+      writeMessage(messageLayer, 1000 / (frame.time - lastFrameTime));
+      lastFrameTime = frame.time;
+      for(var i = 0; i < boxes.length; i++) {
+        boxes[i].move(frame.time, frame.timeDiff);
+      }
+      window.layer.draw();
     }
-    window.layer.draw();
   });
 
   stage.start();
