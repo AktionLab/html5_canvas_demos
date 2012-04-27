@@ -54,8 +54,8 @@ var Box = function(options) {
   window.layer.add(this.krect);
   //this.amplitude = options.amplitude;
   this.amplitude = {
-    x: 600 + (randomFactor * 400),
-    y: 300 + (randomFactor * 200)
+    x: (window.stage.getWidth() / 3) + (randomFactor * window.stage.getWidth() / 6),
+    y: (window.stage.getHeight() / 3) + (randomFactor * window.stage.getHeight() / 6)
   };
   //this.period = options.period;
   this.period = 20000 + (randomFactor * 500);
