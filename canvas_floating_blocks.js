@@ -45,8 +45,12 @@ var Box = function(options) {
 
   this.width = options.width;
   this.height = options.height;
-  this.fill = options.fill;
-  this.krect = new Kinetic.Rect(this);
+  //this.fill = options.fill;
+  this.fontSize = '16';
+  this.fontFamily = 'Aeriel';
+  this.textFill = '#fff';
+  this.text = options.text;
+  this.krect = new Kinetic.Text(this);
   window.layer.add(this.krect);
   //this.amplitude = options.amplitude;
   this.amplitude = {
