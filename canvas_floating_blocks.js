@@ -68,16 +68,16 @@ var Box = function(options) {
     this.box.stopped = false;
   });
 
+  this.offset = {
+    x: (window.stage.getWidth() - this.width) / 2,
+    y: (window.stage.getHeight() - this.height) / 2
+  };
+
   this.move = function(time, timeDiff) {
-    writeMessage(messageLayer, timeDiff);
     if(!this.stopped) {
       timeFactor = (time - this.timeLag) / this.period;
-      offset = {
-        x: (window.stage.getWidth() - this.width) / 2,
-        y: (window.stage.getHeight() - this.height) / 2
-      };
-      this.x = this.amplitude.x * Math.sin(timeFactor) + offset.x;
-      this.y = this.amplitude.y * Math.cos(timeFactor) + offset.y;
+      this.x = this.amplitude.x * Math.sin(timeFactor) + this.offset.x;
+      this.y = this.amplitude.y * Math.cos(timeFactor) + this.offset.y;
       this.krect.setX(this.x);
       this.krect.setY(this.y);
       window.layer.draw();
@@ -108,7 +108,10 @@ window.onload = function() {
   });
 
   stage.onFrame(function(frame) {
-    $.each(boxes, function(i, box) {box.move(frame.time, frame.timeDiff)});
+    writeMessage(messageLayer, 1000 / frame.timeDiff);
+    for(var i = 0; i < boxes.length; i++) {
+      boxes[i].move(frame.time, frame.timeDiff);
+    }
   });
 
   stage.start();
