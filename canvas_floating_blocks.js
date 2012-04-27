@@ -1,7 +1,7 @@
 data = [
   // 16 in outer ring
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2900, fill: '#3a5c7d', fontsize: 22, text: 'A Night to Remember'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2800, fill: '#3a5c7d', fontsize: 20, text: 'Drift' },
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2900, fill: '#f4f5f7', fontsize: 22, text: 'A Night to Remember'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2800, fill: '#f4f5f7', fontsize: 20, text: 'Drift' },
   {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2700, fill: '#f4f5f7', fontsize: 18, text: 'Mrs. Kennedy and Me'},
   {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2600, fill: '#eff2f5', fontsize: 17, text: 'Heaven is for Real'},
   {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2500, fill: '#ebeef1', fontsize: 16, text: 'The Big Miss'},
