@@ -1,35 +1,35 @@
 data = [
   // 16 in outer ring
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2900, fill: '#3a5c7d', text: 'A Night to Remember'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2800, fill: '#3a5c7d', text: 'Drift' },
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2700, fill: '#f4f5f7', text: 'Mrs. Kennedy and Me'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2600, fill: '#eff2f5', text: 'Heaven is for Real'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2500, fill: '#ebeef1', text: 'The Big Miss'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2400, fill: '#e4e9ee', text: 'The Power of Habit'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2300, fill: '#dfe5ea', text: 'Imagine'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2200, fill: '#d4dbe2', text: 'Drop Dead Healthy'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2100, fill: '#ced6df', text: 'Steve Jobs'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2000, fill: '#c1cbd6', text: 'Lifeboat No. 8'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1900, fill: '#b1becc', text: 'A Natural Woman'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1800, fill: '#a3b4c3', text: 'Wild'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1700, fill: '#9aabbd', text: 'Unbroken'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1600, fill: '#94a6b8', text: 'Escape from Camp 14'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1500, fill: '#8fa1b5', text: 'American Sniper'},
-  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1400, fill: '#7e95aa', text: 'Killing Lincoln'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2900, fill: '#f4f5f7', fontsize: 22, text: 'A Night to Remember'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2800, fill: '#f4f5f7', fontsize: 20, text: 'Drift' },
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2700, fill: '#f4f5f7', fontsize: 18, text: 'Mrs. Kennedy and Me'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2600, fill: '#eff2f5', fontsize: 17, text: 'Heaven is for Real'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2500, fill: '#ebeef1', fontsize: 16, text: 'The Big Miss'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2400, fill: '#e4e9ee', fontsize: 15, text: 'The Power of Habit'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2300, fill: '#dfe5ea', fontsize: 14, text: 'Imagine'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2200, fill: '#d4dbe2', fontsize: 14, text: 'Drop Dead Healthy'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2100, fill: '#ced6df', fontsize: 13, text: 'Steve Jobs'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 2000, fill: '#c1cbd6', fontsize: 13, text: 'Lifeboat No. 8'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1900, fill: '#b1becc', fontsize: 13, text: 'A Natural Woman'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1800, fill: '#a3b4c3', fontsize: 13, text: 'Wild'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1700, fill: '#9aabbd', fontsize: 12, text: 'Unbroken'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1600, fill: '#94a6b8', fontsize: 12, text: 'Escape from Camp 14'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1500, fill: '#8fa1b5', fontsize: 12, text: 'American Sniper'},
+  {width: 200, height: 50, amplitude: {x: 800, y: 400}, period: 1400, fill: '#7e95aa', fontsize: 12, text: 'Killing Lincoln'},
   // 8 in middle ring
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2850, fill: '#778ea5', text: 'Trickle Down Tyranny'},
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2650, fill: '#6f88a0', text: 'Bossypants'},
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2450, fill: '#6b849d', text: 'The Vow'},
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2250, fill: '#647f99', text: 'The Immortal Life of Henrietta Lacks'},
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2050, fill: '#5d7994', text: 'Quiet'},
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1850, fill: '#567390', text: "No, They Can't"},
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1650, fill: '#506e8c', text: 'Confessions of a Scarry Mommy'},
-  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1450, fill: '#4f6d8a', text: 'Thinking, Fast and Slow'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2850, fill: '#778ea5', fontsize: 12, text: 'Trickle Down Tyranny'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2650, fill: '#6f88a0', fontsize: 12, text: 'Bossypants'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2450, fill: '#6b849d', fontsize: 12, text: 'The Vow'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2250, fill: '#647f99', fontsize: 12, text: 'The Immortal Life of Henrietta Lacks'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 2050, fill: '#647f99', fontsize: 12, text: 'Quiet'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1850, fill: '#647f99', fontsize: 11, text: "No, They Can't"},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1650, fill: '#647f99', fontsize: 11, text: 'Confessions of a Scarry Mommy'},
+  {width: 200, height: 50, amplitude: {x: 600, y: 300}, period: 1450, fill: '#647f99', fontsize: 11, text: 'Thinking, Fast and Slow'},
   // 4 in inner ring
-  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 2700, fill: '#496887', text: 'Rebuild the Dream'},
-  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 2300, fill: '#456584', text: 'Heaven is Here'},
-  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 1900, fill: '#416382', text: 'Bringing up B&#233;b&#233;'},
-  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 1500, fill: '#3f6080', text: 'Bloom'},
+  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 2700, fill: '#647f99', fontsize: 11, text: 'Rebuild the Dream'},
+  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 2300, fill: '#647f99', fontsize: 11, text: 'Heaven is Here'},
+  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 1900, fill: '#647f99', fontsize: 11, text: 'Bringing up B&#233;b&#233;'},
+  {width: 200, height: 50, amplitude: {x: 400, y: 200}, period: 1500, fill: '#647f99', fontsize: 11, text: 'Bloom'},
 ];
 
 function writeMessage(messageLayer, message) {
@@ -46,9 +46,9 @@ var Box = function(options) {
   this.width = options.width;
   this.height = options.height;
   //this.fill = options.fill;
-  this.fontSize = '16';
-  this.fontFamily = 'Aeriel';
-  this.textFill = '#fff';
+  this.fontSize = options.fontsize;
+  this.fontFamily = 'Georgia';
+  this.textFill = options.fill;
   this.text = options.text;
   this.krect = new Kinetic.Text(this);
   window.layer.add(this.krect);
@@ -58,7 +58,7 @@ var Box = function(options) {
     y: 300 + (randomFactor * 200)
   };
   //this.period = options.period;
-  this.period = 8000 + (randomFactor * 500);
+  this.period = 20000 + (randomFactor * 500);
   this.stopped = false;
   this.timeLag = Math.floor((Math.random() - 0.5) * this.period * 8);
   this.krect.box = this;
