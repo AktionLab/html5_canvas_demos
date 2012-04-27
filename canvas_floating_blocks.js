@@ -80,7 +80,6 @@ var Box = function(options) {
       this.y = this.amplitude.y * Math.cos(timeFactor) + this.offset.y;
       this.krect.setX(this.x);
       this.krect.setY(this.y);
-      window.layer.draw();
     } else {
       this.timeLag += timeDiff;
       writeMessage(messageLayer, this.timeLag);
@@ -112,6 +111,7 @@ window.onload = function() {
     for(var i = 0; i < boxes.length; i++) {
       boxes[i].move(frame.time, frame.timeDiff);
     }
+    window.layer.draw();
   });
 
   stage.start();
