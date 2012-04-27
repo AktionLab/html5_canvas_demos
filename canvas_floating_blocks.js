@@ -69,6 +69,7 @@ var Box = function(options) {
   });
 
   this.move = function(time, timeDiff) {
+    writeMessage(messageLayer, timeDiff);
     if(!this.stopped) {
       timeFactor = (time - this.timeLag) / this.period;
       offset = {
